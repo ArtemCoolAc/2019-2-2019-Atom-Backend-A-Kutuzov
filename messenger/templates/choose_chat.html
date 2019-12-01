@@ -1,0 +1,5 @@
+<form method='post'>
+        {% csrf_token %}
+        {{ choose_chat.as_p }}
+            <input type='submit' value='Выбрать чат'>
+    </form>

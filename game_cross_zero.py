@@ -44,6 +44,21 @@ sum(numpy.fliplr(self.field).diagonal()))])))
                 return 'Error'
         return value
 
+    def main(self):
+        """Метод main()"""
+        print("Приветствую вас в игре 'крестики-нолики'")
+        answer = True
+        while answer:
+            #current_game = Game()
+            self.render_field()
+            self.game_logic()
+            answer = None
+            while answer is None:
+                print("Хотите ли продолжить игровой сеанс? 'y(д)' - да, 'n(н)' - нет")
+                str_answer = input().lower()
+                answer = True if str_answer == 'y' or str_answer == 'д' else \
+(False if str_answer == 'n' or str_answer == 'н' else None)
+
     def game_logic(self):
         """Метод реализации игровой логики"""
         symbols = ('X', 'O')
@@ -71,20 +86,6 @@ sum(numpy.fliplr(self.field).diagonal()))])))
         if not self.check_win() and move_counter == 9:
             print('Это ничья. Но это ожидаемый результат')
 
-def main():
-    """Метод main()"""
-    print("Приветствую вас в игре 'крестики-нолики'")
-    answer = True
-    while answer:
-        current_game = Game()
-        current_game.render_field()
-        current_game.game_logic()
-        answer = None
-        while answer is None:
-            print("Хотите ли продолжить игровой сеанс? 'y(д)' - да, 'n(н)' - нет")
-            str_answer = input().lower()
-            answer = True if str_answer == 'y' or str_answer == 'д' else \
-(False if str_answer == 'n' or str_answer == 'н' else None)
-
 if __name__ == '__main__':
-    main()
+    a = Game()
+    a.main()
